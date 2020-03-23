@@ -7,15 +7,33 @@ um único parâmetro como argumento. Essa função deve retornar `true` se o
 equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
-?
+var isTruthy = function(a) {
+   return !!a
+}
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
-?
+isTruthy(undefined);
+isTruthy(null);
+isTruthy("");
+isTruthy('');
+isTruthy(0);
+isTruthy(-0);
+isTruthy(NaN);
+isTruthy(false);
 
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
-?
+isTruthy(true);
+isTruthy(1);
+isTruthy(-1);
+isTruthy("Augusto");
+isTruthy("a");
+isTruthy("b");
+isTruthy(10);
+isTruthy("!+!");
+isTruthy("ABC");
+isTruthy("1");
 
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
@@ -35,29 +53,39 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
 passado por parâmetro.
 */
-?
+carro.mudarCor = function(a){
+    carro.cor = a;
+}
 
 /*
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
-?
+carro.obterCor = function(){
+    return carro.cor;
+}
 
 /*
 Crie um método chamado `obterModelo` que retorne o modelo do carro.
 */
-?
+carro.obterModelo = function(){
+    return carro.modelo;
+}
 
 /*
 Crie um método chamado `obterMarca` que retorne a marca do carro.
 */
-?
+carro.obterMarca = function(){
+    return carro.marca;
+}
 
 /*
 Crie um método chamado `obterMarcaModelo`, que retorne:
 "Esse carro é um [MARCA] [MODELO]"
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
-?
+carro.obterMarcaModelo = function(){
+    return "Esse carro é um " + carro.obterMarca() + " " + carro.obterModelo();
+}
 
 /*
 Crie um método que irá adicionar pessoas no carro. Esse método terá as
@@ -75,7 +103,21 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
+carro.adicionarPessoa = function(a){
+    if (carro.vagas < a){
+        return
+
+
+    if ((carro.vagas > 0) || (a < 0)){
+        carro.quantidadePessoas += a;
+        carro.vagas -= carro.quantidadePessoas;
+        var pessoa = (carro.quantidadePessoas <= 1) ? "pessoa" : "pessoas";
+        return "Já temos " + carro.quantidadePessoas + " " + pessoa + " no carro!";
+
+    }else { return "O carro já está lotado!";
+    
+          }
+}
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
