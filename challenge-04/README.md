@@ -105,7 +105,8 @@ citado acima, no lugar de "pessoas".
 */
 carro.adicionarPessoa = function(a){
     if (carro.vagas < a){
-        return
+        return "Só cabem mais " + carro.vagas + " pessoas";
+    }
 
 
     if ((carro.vagas > 0) || (a < 0)){
